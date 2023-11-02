@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('main-test/', function () {
+    return view('mainTest.index');
+});
+
+Route::get('main-test/create', function () {
+    return view('mainTest.create');
+});
+
 Route::get('/', function () {
     return view('master.master');
 });
