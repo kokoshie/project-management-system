@@ -7,7 +7,7 @@
     <div class="row">
 
         <div class="col-10 offset-1 shadow p-3">
-            <form  method="POST" >
+            <form action="{{route('main-update',['id'=>$data_from_mainTest->id])}}"  method="POST" >
                 @method('PUT')
                 @csrf
                 <div class="mb-3">

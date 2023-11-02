@@ -34,8 +34,7 @@ Route::get('/main-test',[MainTestController::class,'index'])->name('main');
 Route::get('main-test/create',[MainTestController::class,'create'])->name('main-create');
 Route::post('/main-test',[MainTestController::class,'store'])->name('main-store');
 Route::get('/main-test/{id}/edit',[MainTestController::class,'edit'])->name('main-edit');
-
-
+Route::put('/main-test/{id}',[MainTestController::class,'update'])->name('main-update');
 Route::delete('/main-test/{id}',[MainTestController::class,'destroy'])->name('main-delete');
 
 

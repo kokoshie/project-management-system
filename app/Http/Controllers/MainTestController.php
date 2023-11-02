@@ -58,7 +58,7 @@ class MainTestController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
+       return Helper::update($request,$id);
     }
 
     /**
@@ -91,6 +91,20 @@ class Helper
         $mainTest = new MainTest();
         $mainTest->destroy($id);
 
+        return redirect(route('main'));
+    }
+
+    static function update(Request $request, String $id)
+    {
+
+        $MainTest = MainTest::findOrFail($id);
+
+        $MainTest->name = $request->name;
+        $MainTest->project_id = $request->project_id;
+        $MainTest->status = $request->status;
+        $MainTest->start_date = $request->start_date;
+        $MainTest->end_date = $request->end_date;
+        $MainTest->save();
         return redirect(route('main'));
     }
 
