@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\MainTest;
+use Hamcrest\Arrays\IsArray;
+use PhpParser\Node\Expr\Cast\String_;
+use PHPUnit\TextUI\Help;
 
 class MainTestController extends Controller
 {
@@ -11,7 +15,8 @@ class MainTestController extends Controller
      */
     public function index()
     {
-        //
+        $datas_from_mainTest = MainTest::all();
+        return view('mainTest.index',compact('datas_from_mainTest'));
     }
 
     /**
@@ -19,7 +24,7 @@ class MainTestController extends Controller
      */
     public function create()
     {
-        //
+        return view('mainTest.create');
     }
 
     /**
@@ -27,7 +32,7 @@ class MainTestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       return Helper::insert($request);
     }
 
     /**
@@ -43,7 +48,9 @@ class MainTestController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $mainTest = new MainTest();
+        $data_from_mainTest = $mainTest->find($id);
+        return view('mainTest.edit',compact('data_from_mainTest'));
     }
 
     /**
@@ -51,7 +58,7 @@ class MainTestController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
     }
 
     /**
@@ -59,6 +66,33 @@ class MainTestController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        return Helper::delete($id);
     }
+}
+
+
+class Helper
+{
+    static function insert(Request $request)
+    {
+        $MainTest = new MainTest();
+        $MainTest->project_id = $request->project_id;
+        $MainTest->name = $request->name;
+        $MainTest->start_date = $request->start_date;
+        $MainTest->end_date = $request->end_date;
+        $MainTest->status = $request->status;
+        $MainTest->save();
+        return redirect(route('main'));
+    }
+
+    static function delete(String $id)
+    {
+        $mainTest = new MainTest();
+        $mainTest->destroy($id);
+
+        return redirect(route('main'));
+    }
+
+
 }
