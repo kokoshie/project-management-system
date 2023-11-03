@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SubTaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,10 +21,13 @@ Route::get('main-test/', function () {
 Route::get('main-test/create', function () {
     return view('mainTest.create');
 });
-
-Route::get('/', function () {
-    return view('master.master');
-});
+Route::get('sub-task/', [SubTaskController::class, 'index']);
+Route::get('sub-task/create', [SubTaskController::class, 'create']);
+Route::post('sub-task/create', [SubTaskController::class, 'store']);
+Route::get('/sub-task/{id}', [SubTaskController::class,'edit']);
+Route::post('/sub-task/{id}', [SubTaskController::class,'update']);
+Route::get('/sub-task/delete/{id}', [SubTaskController::class,'destroy']);
+// Route::resource('subtask',SubTaskController::class);
 
 
 
