@@ -2,12 +2,12 @@
 
 use App\Http\Controllers\SubTaskController;
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
+
 use App\Http\Controllers\Projects\ProjectController;
 
-=======
+
 use App\Http\Controllers\MainTestController;
->>>>>>> 20827a3db893eb640b82fccc299a57eb494515d4
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +29,7 @@ use App\Http\Controllers\MainTestController;
 |
 */
 
-<<<<<<< HEAD
+
 Route::get('/', [ProjectController::class,'index']);
 
 Route::get('/create',[ProjectController::class,'create']);
@@ -42,12 +42,12 @@ Route::put('/update/{id}',[ProjectController::class,'update']);
 
 Route::get('/delete/{id}',[ProjectController::class,'destroy']);
 
-// Route::get('/show',[ProjectController::class,'show']);
+Route::get('/show',[ProjectController::class,'show']);
 
 Route::get('/master', function(){
     return view('master.master');
 });
-=======
+
 // Route::get('main-test/', function () {
 //     return view('mainTest.index');
 // });
@@ -83,7 +83,7 @@ Route::post('/sub-task/{id}', [SubTaskController::class,'update']);
 Route::get('/sub-task/delete/{id}', [SubTaskController::class,'destroy']);
 // Route::resource('subtask',SubTaskController::class);
 
->>>>>>> 20827a3db893eb640b82fccc299a57eb494515d4
+
 
 
 

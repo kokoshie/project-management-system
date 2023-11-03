@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 
 
-=======
 @extends('master.master')
 
 @section('content')
@@ -53,4 +51,4 @@
 </div>
 
 @endsection
->>>>>>> 20827a3db893eb640b82fccc299a57eb494515d4
+

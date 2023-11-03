@@ -70,8 +70,8 @@ class ProjectController extends Controller
         Project::find($id)->update([    
             'name'=>$request->name,
             'status'=>$request->status,
-            'start_date'=> $request->start,
-            'end_date'=> $request->end
+            'start_date'=> $request->start_date,
+            'end_date'=> $request->end_date
         ]) ;
         return redirect('/')->with('success', 'You have successfully update!');
     }
