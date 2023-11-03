@@ -29,7 +29,7 @@
 
         <tr>
             <th scope="row">{{$i++}}</th>
-            <td> {{ $data_from_mainTest->project_id }} </td>
+            <td> {{ $data_from_mainTest->project->name }} </td>
             <td>  {{ $data_from_mainTest->name }} </td>
             <td>  <span class="bg-warning rounded p-1">{{ $data_from_mainTest->status }} </span> </td>
             <td>  {{ $data_from_mainTest->start_date }} </td>

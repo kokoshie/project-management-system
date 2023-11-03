@@ -7,6 +7,7 @@ use App\Models\MainTest;
 use Hamcrest\Arrays\IsArray;
 use PhpParser\Node\Expr\Cast\String_;
 use PHPUnit\TextUI\Help;
+use App\Models\Projects\Project;
 
 class MainTestController extends Controller
 {
@@ -15,6 +16,7 @@ class MainTestController extends Controller
      */
     public function index()
     {
+
         $datas_from_mainTest = MainTest::all();
         return view('mainTest.index',compact('datas_from_mainTest'));
     }
@@ -24,7 +26,8 @@ class MainTestController extends Controller
      */
     public function create()
     {
-        return view('mainTest.create');
+        $datas_from_project = Project::all();
+        return view('mainTest.create', compact('datas_from_project'));
     }
 
     /**

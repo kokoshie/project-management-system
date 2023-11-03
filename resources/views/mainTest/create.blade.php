@@ -12,7 +12,15 @@
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Project</label>
-                    <input type="text" name="project_id" class="form-control" >
+
+                    <select name="project_id" id="" class="form-control custom-select ">
+                        <option selected >Select Project</option>
+                        @foreach ( $datas_from_project as  $data_from_project)
+                            <option value="{{$data_from_project->id}}">{{$data_from_project->name}}</option>
+                        @endforeach
+
+
+                    </select>
                   </div>
 
                 <div class="mb-3">
@@ -32,7 +40,7 @@
 
                 <div class="mb-3">
                     <label for="start_date" class="" >Project Start Date</label>
-                    <input type="date" name="start_date" class="form-control">
+                    <input type="date" name="start_date"  class="form-control">
                 </div>
 
                 <div class="mb-3">
