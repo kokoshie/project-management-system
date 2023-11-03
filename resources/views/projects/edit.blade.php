@@ -29,7 +29,7 @@
                             <label for="">Status</label>
                             <select name="status" id="status" class="form-control form-selected @error('status') is-invalid @enderror " >
                                 <option value="">{{ $data->status }}</option>
-                                <option value="To Do">To Do</option>
+                                <option value="TO DO">To Do</option>
                                 <option value="PROGRESS">Progress</option>
                                 <option value="DONE">Done</option>
                             </select>

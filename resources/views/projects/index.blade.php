@@ -41,6 +41,7 @@
                                         <td>{{ $row->start_date }}</td>
                                         <td>{{ $row->end_date }}</td>
                                         <td class="text-center">
+                                            <a href="{{ url('/show/details/'. $row->id ) }}" class="btn btn-info"><i class="bi bi-ticket-detailed-fill"></i></a>
                                             <a href="{{ url('/edit/'. $row->id ) }}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
                                             <a href="{{ '/delete/'. $row->id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')"><i class="bi bi-trash3-fill "></i></a> 
                                         </td>

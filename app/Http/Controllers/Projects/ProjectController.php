@@ -50,7 +50,8 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        // 
+        $detail_data = Project::find($id);
+        return view('projects.details', compact('detail_data')); 
     }
 
     /**
