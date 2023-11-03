@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Projects\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,14 +13,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-<?php
-
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,15 +24,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('main-test/', function () {
-    return view('mainTest.index');
-});
+Route::get('/', [ProjectController::class,'index']);
 
-Route::get('main-test/create', function () {
-    return view('mainTest.create');
-});
+Route::get('/create',[ProjectController::class,'create']);
 
-Route::get('/', function () {
+Route::post('/store',[ProjectController::class,'store']);
+
+Route::get('/edit/{id}',[ProjectController::class,'edit']);
+
+Route::put('/update/{id}',[ProjectController::class,'update']);
+
+Route::get('/delete/{id}',[ProjectController::class,'destroy']);
+
+Route::get('/show',[ProjectController::class,'show']);
+
+Route::get('/master', function(){
     return view('master.master');
 });
 
