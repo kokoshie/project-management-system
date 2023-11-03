@@ -36,7 +36,7 @@ Route::put('/update/{id}',[ProjectController::class,'update']);
 
 Route::get('/delete/{id}',[ProjectController::class,'destroy']);
 
-Route::get('/show',[ProjectController::class,'show']);
+// Route::get('/show',[ProjectController::class,'show']);
 
 Route::get('/master', function(){
     return view('master.master');
