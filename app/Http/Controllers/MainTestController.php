@@ -32,7 +32,7 @@ class MainTestController extends Controller
      */
     public function store(Request $request)
     {
-       return Helper::insert($request);
+       return insert($request);
     }
 
     /**
@@ -40,7 +40,9 @@ class MainTestController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data_from_mainTest = MainTest::findOrFail($id);
+
+        return view('mainTest.show',compact('data_from_mainTest'));
     }
 
     /**
@@ -58,7 +60,7 @@ class MainTestController extends Controller
      */
     public function update(Request $request, string $id)
     {
-       return Helper::update($request,$id);
+       return update($request,$id);
     }
 
     /**
@@ -67,46 +69,49 @@ class MainTestController extends Controller
     public function destroy(string $id)
     {
 
-        return Helper::delete($id);
+        return delete($id);
     }
 }
 
 
-class Helper
+
+function insert(Request $request)
 {
-    static function insert(Request $request)
-    {
-        $MainTest = new MainTest();
-        $MainTest->project_id = $request->project_id;
-        $MainTest->name = $request->name;
-        $MainTest->start_date = $request->start_date;
-        $MainTest->end_date = $request->end_date;
-        $MainTest->status = $request->status;
-        $MainTest->save();
-        return redirect(route('main'));
-    }
-
-    static function delete(String $id)
-    {
-        $mainTest = new MainTest();
-        $mainTest->destroy($id);
-
-        return redirect(route('main'));
-    }
-
-    static function update(Request $request, String $id)
-    {
-
-        $MainTest = MainTest::findOrFail($id);
-
-        $MainTest->name = $request->name;
-        $MainTest->project_id = $request->project_id;
-        $MainTest->status = $request->status;
-        $MainTest->start_date = $request->start_date;
-        $MainTest->end_date = $request->end_date;
-        $MainTest->save();
-        return redirect(route('main'));
-    }
-
-
+    MainTest::create([
+        'project_id'=>$request->project_id,
+        'name'=>$request->name,
+        'start_date'=>$request->start_date,
+        'end_date'=>$request->end_date,
+        'status'=>$request->status,
+    ]);
+    return redirect(route('main'));
 }
+
+function delete(String $id)
+{
+    $mainTest = new MainTest();
+    $mainTest->destroy($id);
+
+    return redirect(route('main'));
+}
+
+function update(Request $request, String $id)
+{
+
+    $MainTest = MainTest::findOrFail($id);
+    $MainTest->name = $request->name;
+    $MainTest->project_id = $request->project_id;
+    $MainTest->status = $request->status;
+    $MainTest->start_date = $request->start_date;
+    $MainTest->end_date = $request->end_date;
+    $MainTest->save();
+    return redirect(route('main'));
+}
+
+function show($id)
+{
+    $data = MainTest::findOrFail($id);
+}
+
+
+
