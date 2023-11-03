@@ -2,12 +2,10 @@
 
 use App\Http\Controllers\SubTaskController;
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
 use App\Http\Controllers\MainTestController;
-=======
 use App\Http\Controllers\Projects\ProjectController;
 
->>>>>>> a7739c6cfb8a9a100c14a8066612517dd6635212
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,12 +27,13 @@ use App\Http\Controllers\Projects\ProjectController;
 |
 */
 
-<<<<<<< HEAD
+
+
 // Route::get('main-test/', function () {
 //     return view('mainTest.index');
 // });
 
-<<<<<<< HEAD
+
 // Route::get('main-test/create', function () {
 //     return view('mainTest.create');
 // });
@@ -56,10 +55,7 @@ Route::get('/main-test/{id}/edit',[MainTestController::class,'edit'])->name('mai
 Route::put('/main-test/{id}',[MainTestController::class,'update'])->name('main-update');
 Route::delete('/main-test/{id}',[MainTestController::class,'destroy'])->name('main-delete');
 
-=======
-Route::get('main-test/create', function () {
-    return view('mainTest.create');
-});
+
 Route::get('sub-task/', [SubTaskController::class, 'index']);
 Route::get('sub-task/create', [SubTaskController::class, 'create']);
 Route::post('sub-task/create', [SubTaskController::class, 'store']);
@@ -67,8 +63,7 @@ Route::get('/sub-task/{id}', [SubTaskController::class,'edit']);
 Route::post('/sub-task/{id}', [SubTaskController::class,'update']);
 Route::get('/sub-task/delete/{id}', [SubTaskController::class,'destroy']);
 // Route::resource('subtask',SubTaskController::class);
->>>>>>> c2fb1847ea2a1465b590be87b2590eeb56add359
-=======
+
 Route::get('/', [ProjectController::class,'index']);
 
 Route::get('/create',[ProjectController::class,'create']);
@@ -86,7 +81,7 @@ Route::get('/show',[ProjectController::class,'show']);
 Route::get('/master', function(){
     return view('master.master');
 });
->>>>>>> a7739c6cfb8a9a100c14a8066612517dd6635212
+
 
 
 

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 @extends('master.master')
 
 @section('content')
@@ -50,7 +50,4 @@
 </div>
 
 @endsection
-=======
 
-
->>>>>>> a7739c6cfb8a9a100c14a8066612517dd6635212
