@@ -4,21 +4,21 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6 mx-auto">
             <div class="card shadow-3">
                 <div class="card-header d-flex justify-content-between">
                     <div class="card-title col-md-10">
-                        <h1>Update Project</h1>
+                        <h3>Update Project</h3>
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-primary btn-lg"><a href="{{ url('/') }}" class="text-light">Back</a></button>
+                        <button class="btn btn-primary"><a href="{{ url('/') }}" class="text-light">Back</a></button>
                     </div>
                 </div>
-                <div class="card-body" @style('font-size:50px')>
+                <div class="card-body">
                     <form action="{{ ('/update/'. $data->id ) }}" method="POST">
                         {{ csrf_field() }} @method('PUT')
                         <div class="form-group">
-                            <label for=""><h2>Name </h2></label>
+                            <label for="">Name </label>
                             <input type="text" name="name" placeholder="Enter your name" class="form-control mb-3 @error('name') is-invalid @enderror" value="{{ $data->name }}" >
                             @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -26,10 +26,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for=""><h2>Status</h2></label>
+                            <label for="">Status</label>
                             <select name="status" id="status" class="form-control form-selected @error('status') is-invalid @enderror " >
                                 <option value="">{{ $data->status }}</option>
-                                <option value="To Do">To Do</option>
+                                <option value="TO DO">To Do</option>
                                 <option value="PROGRESS">Progress</option>
                                 <option value="DONE">Done</option>
                             </select>
@@ -39,7 +39,7 @@
                         </div>
 
                         <div>
-                            <label for="" class="form-group"><h2>Start Date </h2></label>
+                            <label for="" class="form-group">Start Date </label>
                             <input type="date" name="start_date" class="form-control mb-3 @error('start_date') is-invalid @enderror " value="{{ $data->start_date }}">
                             @error('start_date')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -47,7 +47,7 @@
                         </div>
 
                         <div>
-                            <label for="" class="form-group"><h2>End Date </h2></label>
+                            <label for="" class="form-group">End Date </label>
                             <input type="date" name="end_date" class="form-control mb-3 @error('end_date') is-invalid @enderror" value="{{ $data->end_date }}">
                             @error('end_date')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -55,7 +55,7 @@
                         </div>
 
                         <div>
-                            <input type="submit" value="Update" class="btn btn-primary btn-lg">
+                            <input type="submit" value="Update" class="btn btn-primary btn-sm">
                         </div>
 
                     </form>
