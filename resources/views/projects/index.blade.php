@@ -4,14 +4,14 @@
 
 <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10 mx-auto">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="card-title col-md-10">
-                            <h2 class="pl-5">Project Lists</h2>
+                            <h3 class="pl-5">Project Lists</h3>
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-primary btn-lg"><a href="{{ url('create') }}" class="text-light" >Create</a></button>
+                            <button class="btn btn-primary "><a href="{{ url('create') }}" class="text-light" >Create</a></button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -21,7 +21,7 @@
                                 <button class="close" data-dismiss="alert">&times;</button>
                             </div>
                         @endif
-                        <table class="table table-bordered table-striped" @style('font-size:23px')>
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr class="text-center">
                                 <th>ID</th>
@@ -41,8 +41,8 @@
                                         <td>{{ $row->start_date }}</td>
                                         <td>{{ $row->end_date }}</td>
                                         <td class="text-center">
-                                            <a href="{{ url('/edit/'. $row->id ) }}" class="btn btn-success btn-lg"><i class="bi bi-pencil-square p-2"></i>Edit</a>
-                                            <a href="{{ '/delete/'. $row->id }}" class="btn btn-danger btn-lg" onclick="return confirm('Are you sure you want to delete?')"><i class="bi bi-trash3-fill p-2"></i>Delete</a> 
+                                            <a href="{{ url('/edit/'. $row->id ) }}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                                            <a href="{{ '/delete/'. $row->id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')"><i class="bi bi-trash3-fill "></i></a> 
                                         </td>
                                     </tr> 
                                 @endforeach
