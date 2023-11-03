@@ -1,4 +1,4 @@
-@extends('master.master');
+@extends('master.master')
 
 @section('content')
     <div class="col-3">
@@ -6,6 +6,11 @@
   
     <div class="col-6">
         <div class="card p-4 shadow">
+            @if (session('date_error'))
+                <div class="alert alert-danger mb-3">
+                    {{ session('date_error') }}
+                </div>
+            @endif
             <div class="d-flex justify-content-between">
                 <h3 class="text-primary mb-4">Edit SubTask</h3>
                 <a href="{{url('sub-task/')}}"><i class="bi bi-reply-fill fa-2x"></i></a>

@@ -40,7 +40,7 @@ class ProjectController extends Controller
         Project::create([
             'name'=> $request->name,  
             'status'=>$request->status,  
-            'start_date'=> $request->start,
+            'start_date'=> $request->start, 
             'end_date'=> $request->end
         ]);
         return redirect('/')->with('success', 'You have successfully created!');

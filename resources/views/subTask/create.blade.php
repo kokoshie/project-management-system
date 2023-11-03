@@ -22,9 +22,33 @@
                     {{ session('success') }}
                 </div>
             @endif
+            @if (session('date_error'))
+                <div class="alert alert-danger mb-3">
+                    {{ session('date_error') }}
+                </div>
+            @endif
             <form action="{{url("sub-task/create")}}" method="post">
                 @csrf
-                <input type="hidden" name="main_task_id" value="1">
+                <div class="mb-2">
+                    <label for="">Main Task</label>
+                    <select name="main_task_id" id="" class="form-select">
+                        @foreach ($main_test as $val)
+                            <option value="{{$val->id }}">
+                                <div class="">
+                                   <div> {{$val->name }}</div> 
+                                   <div>
+                                        <span>( start: </span>
+                                        <span>{{$val->start_date}}</span>
+                                        <span>, end:</span>
+                                        <span>{{$val->end_date}}</span>
+                                        <span>)</span>
+                                    </div>
+                                </div>
+                            </option>
+                           
+                        @endforeach
+                    </select>
+                </div>
                 <div class="mb-2">
                 <label for="">Name</label>
                 <input type="textname" name="name" class="form-control">
@@ -58,7 +82,7 @@
                 </div>
                 <div class="mb-2">
                     <label for="">Start-date</label>
-                    <input name="start_date" type="date" class="form-control">
+                        <input name="start_date" type="date" class="form-control">
                     @if($error)
                         <span class="text-danger">{{$error[3]}}</span>
                     @endif 

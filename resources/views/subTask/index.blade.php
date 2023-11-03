@@ -19,7 +19,8 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Main Task</th>
+                    <th>Sub Task</th>
                     <th>Priority</th>
                     <th>Status</th>
                     <th>Start Date</th>
@@ -29,13 +30,14 @@
             </thead>
             <tbody>
                 @foreach ($subTask as $item)
-                    <tr>
+                    <tr class="text-center">
+                        <td>{{$item->mainTask->name}}</td>
                         <td>{{$item->name}}</td>
-                        <td>{{$item->priority}}</td>
-                        <td>{{$item->status}}</td>
+                        <td><span class="bg-info rounded p-1">{{$item->priority}}</span></td>
+                        <td><span class="bg-success rounded p-1">{{$item->status}}</span></td>
                         <td>{{$item->start_date}}</td>
                         <td>{{$item->end_date}}</td>
-                        <td class="d-flex">
+                        <td class="d-flex border-top-0">
                             <a href="{{url("/sub-task/$item->id")}}" @style('margin-right:10px') ><i class="bi bi-box-arrow-in-down-left"></i></a>
                             <a href="{{url("/sub-task/delete/$item->id")}}" @class('text-danger')><i class="bi bi-trash3"></i></a>
                         </td>
